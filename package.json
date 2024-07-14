@@ -6,8 +6,12 @@
   "scripts": {
     "start": "ts-node src/index.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suwanohiro/npm_swnSQLite.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "suwanohiro",
   "license": "ISC",
   "dependencies": {
     "sqlite": "^5.1.1",
