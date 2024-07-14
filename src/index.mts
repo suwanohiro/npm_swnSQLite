@@ -1,5 +1,5 @@
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+const sqlite3 = require('sqlite3');
+const { open } = require('sqlite');
 
 /**
  * SQLiteデータベース操作を扱うクラス。Create, Read, Update, Delete (CRUD) 操作をサポートします。
