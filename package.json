@@ -2,9 +2,9 @@
   "name": "npm_swnsqlite",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "src/index.mts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.mts"
   },
   "repository": {
     "type": "git",
