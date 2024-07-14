@@ -1,12 +1,12 @@
 const sqlite3 = require('sqlite3');
-const { open } = require('sqlite');
+const { open: open_sqlite } = require('sqlite');
 
 /**
  * SQLiteデータベース操作を扱うクラス。Create, Read, Update, Delete (CRUD) 操作をサポートします。
  *
  * @class swnSQLite
  */
-export default class swnSQLite {
+class swnSQLite {
     private dbName: string;
 
     /**
@@ -29,7 +29,7 @@ export default class swnSQLite {
      * db.executeQuery('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT)');
      */
     async executeQuery(query: string, params: any[] = []): Promise<void> {
-        const db = await open({ filename: this.dbName, driver: sqlite3.Database });
+        const db = await open_sqlite({ filename: this.dbName, driver: sqlite3.Database });
         await db.run(query, params);
         await db.close();
     }
@@ -44,7 +44,7 @@ export default class swnSQLite {
      * const rows = await db.fetchAll('SELECT * FROM users');
      */
     async fetchAll(query: string, params: any[] = []): Promise<any[]> {
-        const db = await open({ filename: this.dbName, driver: sqlite3.Database });
+        const db = await open_sqlite({ filename: this.dbName, driver: sqlite3.Database });
         const rows = await db.all(query, params);
         await db.close();
         return rows;
@@ -60,7 +60,7 @@ export default class swnSQLite {
      * const row = await db.fetchOne('SELECT * FROM users WHERE id = ?', [1]);
      */
     async fetchOne(query: string, params: any[] = []): Promise<any> {
-        const db = await open({ filename: this.dbName, driver: sqlite3.Database });
+        const db = await open_sqlite({ filename: this.dbName, driver: sqlite3.Database });
         const row = await db.get(query, params);
         await db.close();
         return row;
